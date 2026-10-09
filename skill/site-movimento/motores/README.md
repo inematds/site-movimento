@@ -15,7 +15,7 @@ data, motor, modelo, custo, arquivo e id de cada job).
 | Motor | Como autentica | Fixa início e fim | Observações medidas |
 |---|---|---|---|
 | `kling.sh` | CLI `kling` pela assinatura (`kling login` uma vez) | sim | v3.0, 720p, 30 créditos por 5 s; multi-shots e áudio desligados |
-| `agnes.sh` | `AGNES_API_KEY` | sim (interpolação entre os dois) | prompt em inglês; 503 transitórios; ~1 vídeo/min; 8n+1 quadros |
+| `agnes.sh` | `AGNES_API_KEY` | sim (interpolação entre os dois) | prompt em inglês; 503 transitórios; ~1 vídeo/min; 8n+1 quadros; medido: pontas 0,91, meio vira metamorfose |
 | `kie.sh` | `KIE_API_KEY` | depende do modelo (`KIE_MODELO`, `KIE_CAMPOS`) | imagens viram URL pública (upload do serviço ou `KIE_SUBIR`) |
 | `custom.sh` | o que o seu comando precisar | depende | `MOTOR_CMD` com `{inicio} {fim} {prompt} {segundos} {saida}` |
 

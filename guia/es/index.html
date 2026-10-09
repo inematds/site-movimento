@@ -261,9 +261,9 @@ Lee las referencias, entrévistame y usa el motor kling.</span></pre>
     <figure><img src="../assets/ex-keyframes.jpg" alt="Hoja con los cuatro keyframes del piloto, de la pista al panel" loading="lazy"><figcaption>Los 4 keyframes, hechos por aproximación.</figcaption></figure>
   </div>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><h3>Números del piloto</h3><p>3 clips de 5 s + 1 loop en Kling 720p: <strong>150 créditos</strong> (un loop rehecho). Fijación de los cuadros entre 0,91 y 0,997. Cero cortes. 361 cuadros. Tirón máximo de 33 a 36 ms.</p></div>
+    <div class="card"><h3>Números del piloto</h3><p>Kling 720p, clips de 5 s: <strong>300 créditos</strong> en total. 150 en la 1ª versión (3 clips + loop, un loop rehecho), 60 para quitar las letras del panel (30 perdidos: las letras nacían en el keyframe, y el 1er rehecho partió de un cuadro que ya tenía letras) y 90 en la película vertical del celular (3 clips 9:16). Fijación entre 0,91 y 0,997, cero cortes, 285 cuadros en la computadora y 361 en el celular.</p></div>
     <div class="card"><h3>Seis gráficos en código</h3><p>Marco que se desliza por las áreas, ruta con avión en la agenda, barra de grabación, línea que une las cuatro puertas, archivos entrando en la carpeta y un avión que despega en el pie de página.</p></div>
-    <div class="card"><h3>Lo que detectaron los críticos</h3><p>Lista de noticias vacía, frase final borrada, interruptor tapando contenido y la película sin "aterrizar" en el panel real. Esos cuatro se corrigieron. En la 2ª ronda los críticos aún reprueban: el panel generado por la IA tiene letras deformadas y las capturas muestran franjas negras mientras cargan los cuadros.</p></div>
+    <div class="card"><h3>Lo que detectaron los críticos</h3><p>1ª ronda: lista de noticias vacía, frase final borrada, interruptor tapando contenido y la película sin "aterrizar" en el panel real (corregidos). 2ª ronda: letras deformadas en el panel y franjas negras mientras cargan los cuadros. Las dos se corrigieron después (panel sin letras, cuadros espaciados primero y póster en lugar del negro), pero aún no pasaron por una 3ª ronda. Sigue abierto: los colores heredados de eventos (bloque amarillo del PRO, botones salmón).</p></div>
   </div>
 </div></section>
 
@@ -291,8 +291,9 @@ Lee las referencias, entrévistame y usa el motor kling.</span></pre>
   <p class="sub">Solo lo que se hizo está marcado como hecho.</p>
   <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Skill 1.0 + motores + piloto</strong><span>Siete pasos, cuatro motores con el mismo contrato, motor Kling medido, piloto público en la home de eventos.</span></div></div>
   <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Medición de delegación</strong><span>Construcción y críticos comparados entre modelo menor y tope.</span></div></div>
-  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Agnes y Kie medidos</strong><span>Ejecutar un clip de prueba en cada uno y registrar fijación, costo y tiempo (están construidos y probados en el contrato, aún sin clip real).</span></div></div>
-  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Película 9:16 en el celular</strong><span>Segunda pasada vertical con el mismo recorrido, para que el celular tenga la película completa.</span></div></div>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Película 9:16 en el celular</strong><span>Keyframes verticales sacados de los horizontales (mismo eje), 3 clips Kling 9:16 y <code>montar.py --vertical</code>. En el celular en vertical la página usa <code>frames-v/</code>.</span></div></div>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Agnes medido</strong><span>1 clip con los mismos extremos y el mismo prompt que Kling: fija los extremos (0,91), sin corte, 80 s de render. Pero en el medio el lugar se transforma (otro vestíbulo, el panel se vuelve una pared), mientras Kling mantuvo la geometría. Sirve para transiciones cortas, no para el plano continuo de arriba.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Kie medido</strong><span>Construido y probado en el contrato, aún sin clip real.</span></div></div>
 </div></section>
 
 <footer>

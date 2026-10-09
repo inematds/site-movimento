@@ -47,7 +47,7 @@ filme = f'''<main>
 h = h.replace('<main>', filme, 1)
 
 video = ('<figure class="news-painel"><video aria-hidden="true" autoplay data-xray="painel que atualiza · loop de 5 s, começa e termina no mesmo quadro" '
-         'data-xray-cost="30" data-xray-tool="kling" loop muted playsinline poster="frames/f_0361.jpg" preload="metadata">'
+         'data-xray-cost="30" data-xray-tool="kling" loop muted playsinline poster="assets/painel.jpg" preload="metadata">'
          '<source src="assets/painel.webm" type="video/webm"/><source src="assets/painel.mp4" type="video/mp4"/></video></figure>')
 marca = '<a class="botao-news" href="https://news.inema.pro/">Ler o INEMA News</a>'
 assert marca in h

@@ -60,6 +60,7 @@
       if (s !== sCover) { ctx.fillStyle = o.bg || '#000'; ctx.fillRect(0, 0, cw, ch); }
       ctx.drawImage(src, (cw - w) / 2 + (o.offsetX || 0) * cw, (ch - h) / 2, w, h);
       displayed = k === i ? i : -1;
+      if (!canvas.dataset.pronto) canvas.dataset.pronto = '1';  // até aqui o CSS mostra o pôster no lugar do preto
       o.onDraw && o.onDraw(ctx, cw, ch, k);
     }
     let garantidos = -1;
@@ -82,9 +83,12 @@
       }
       for (const k of Array.from(bitmaps.keys())) if (k < center - KEEP || k > center + KEEP) { bitmaps.get(k).close(); bitmaps.delete(k); }
     }
-    // fila com limite de downloads simultâneos: primeiro o começo do filme, depois o resto em ordem
+    // fila com limite de downloads simultâneos: primeiro 1 quadro a cada 8 (o filme inteiro fica
+    // "rascunhado" e qualquer ponto da rolagem já tem um quadro perto para mostrar, nunca preto),
+    // depois o resto em ordem
     let next = 0; const inflight = { n: 0 };
-    const order = [...Array(N).keys()];
+    const passo = o.coarse || 8;
+    const order = [...Array(N).keys()].filter(i => i % passo === 0).concat([...Array(N).keys()].filter(i => i % passo !== 0));
     function pump() {
       while (inflight.n < (o.concurrency || 10) && next < N) {
         const i = order[next++]; inflight.n++;

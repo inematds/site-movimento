@@ -68,7 +68,12 @@ Contrato único (`motores/README.md`): `motores/<motor>.sh <inicio.png> <fim.png
 
 ### agnes (chave AGNES_API_KEY)
 - Modo `keyframes`: interpola entre início e fim (exige os dois).
-- Prompt em inglês; ~1/3 de 503 transitórios; ~1 vídeo por minuto; `num_frames` = 8n+1.
+- Prompt em inglês; ~1/3 de 503 transitórios; ~1 vídeo por minuto; `num_frames` = 8n+1 (teto 481 em 720p).
+- **Medido no piloto (08/10/2026, 1 clipe, mesmas pontas e prompt do Kling):** fixa as pontas
+  (0,915 / 0,908), sem corte, 80 s de render, sai em 1280×704. Mas o MEIO é uma metamorfose, não um
+  travelling: a câmera "entra" num saguão diferente e o painel vira uma parede de plaquetas. O Kling
+  manteve a geometria do lugar. Use o Agnes para transições curtas entre quadros parecidos; para o
+  plano contínuo do topo, confira o meio na folha antes de encadear.
 
 ### kie (chave KIE_API_KEY da pessoa)
 - Um hub com vários modelos. Defina `KIE_MODELO` e, se o modelo usar outros nomes de campo, `KIE_CAMPOS`.

@@ -261,9 +261,9 @@ Leia as referências, me entreviste e use o motor kling.</span></pre>
     <figure><img src="assets/ex-keyframes.jpg" alt="Folha com os quatro keyframes do piloto, da pista ao painel" loading="lazy"><figcaption>Os 4 keyframes, feitos por aproximação.</figcaption></figure>
   </div>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><h3>Números do piloto</h3><p>3 clipes de 5 s + 1 loop no Kling 720p: <strong>150 créditos</strong> (um loop refeito). Fixação dos quadros entre 0,91 e 0,997. Zero cortes. 361 quadros. Travada máxima de 33 a 36 ms.</p></div>
+    <div class="card"><h3>Números do piloto</h3><p>Kling 720p, clipes de 5 s: <strong>300 créditos</strong> no total. 150 na 1ª versão (3 clipes + loop, um loop refeito), 60 para tirar as letras do painel (30 perdidos: as letras nasciam no keyframe, e o 1º refazer partiu de um quadro que já tinha letras) e 90 no filme vertical do celular (3 clipes 9:16). Fixação entre 0,91 e 0,997, zero cortes, 285 quadros no computador e 361 no celular.</p></div>
     <div class="card"><h3>Seis gráficos em código</h3><p>Moldura que desliza nas áreas, rota com avião na agenda, barra de gravação, linha que liga as quatro portas, arquivos entrando na pasta e um avião que decola no rodapé.</p></div>
-    <div class="card"><h3>O que os críticos pegaram</h3><p>Lista de notícias vazia, frase final apagada, chave cobrindo conteúdo e o filme sem "pousar" no painel real. Esses quatro foram corrigidos. Na 2ª rodada os críticos ainda reprovam: o painel gerado pela IA tem letras deformadas e as capturas mostram faixas pretas enquanto os quadros carregam.</p></div>
+    <div class="card"><h3>O que os críticos pegaram</h3><p>1ª rodada: lista de notícias vazia, frase final apagada, chave cobrindo conteúdo e o filme sem "pousar" no painel real (corrigidos). 2ª rodada: letras deformadas no painel e faixas pretas enquanto os quadros carregam. As duas foram corrigidas depois (painel sem letras, quadros espaçados primeiro e pôster no lugar do preto), mas ainda não passaram por uma 3ª rodada. Continua aberto: as cores herdadas do eventos (bloco amarelo do PRO, botões salmão).</p></div>
   </div>
 </div></section>
 
@@ -291,8 +291,9 @@ Leia as referências, me entreviste e use o motor kling.</span></pre>
   <p class="sub">Só o que foi feito está marcado como feito.</p>
   <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Skill 1.0 + motores + piloto</strong><span>Sete passos, quatro motores com o mesmo contrato, motor Kling medido, piloto público na home do eventos.</span></div></div>
   <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Medição de delegação</strong><span>Construção e críticos comparados entre modelo menor e topo.</span></div></div>
-  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Agnes e Kie medidos</strong><span>Rodar um clipe de teste em cada um e registrar fixação, custo e tempo (estão construídos e testados no contrato, ainda sem clipe real).</span></div></div>
-  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Filme 9:16 no celular</strong><span>Segunda passada vertical com a mesma viagem, para o celular ter o filme inteiro.</span></div></div>
+  <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Filme 9:16 no celular</strong><span>Keyframes verticais tirados dos horizontais (mesmo eixo), 3 clipes Kling 9:16 e <code>montar.py --vertical</code>. No celular em pé a página usa <code>frames-v/</code>.</span></div></div>
+  <div class="phase"><div class="tag">Feito</div><div class="d"><strong>Agnes medido</strong><span>1 clipe com as mesmas pontas e o mesmo prompt do Kling: fixa as pontas (0,91), sem corte, 80 s de render. Mas no meio o lugar se transforma (outro saguão, o painel vira parede), enquanto o Kling manteve a geometria. Serve para transições curtas, não para o plano contínuo do topo.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Kie medido</strong><span>Construído e testado no contrato, ainda sem clipe real.</span></div></div>
 </div></section>
 
 <footer>

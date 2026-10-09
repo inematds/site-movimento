@@ -164,7 +164,18 @@ Alternativas: Codex `image_gen` para o keyframe de abertura (texto bem desenhado
 imagem do próprio motor de vídeo quando a pessoa preferir (custa crédito).
 
 **Olhe a folha e refaça** qualquer keyframe que vire a câmera, mude de lugar ou de luz.
-Refazer um keyframe custa segundos; um clipe que pula custa créditos. Detalhes, sufixo de estilo e
+Refazer um keyframe custa segundos; um clipe que pula custa créditos.
+**Procure letras ampliando** (placas, painéis, telas): o modelo de imagem desenha texto mesmo com
+"no text" no prompt, e o vídeo só deixa a letra maior e mais torta conforme a câmera chega perto.
+Letra num keyframe vira letra deformada no filme; redesenhe com outra semente ou pinte o trecho
+com a cor lisa vizinha. No piloto, "Departures" no kf03 custou um clipe refeito à toa.
+
+**Celular (9:16):** derive cada keyframe vertical do horizontal correspondente, com o mesmo eixo:
+`kf_aproxima.py kf/kf0N.png kf-v/kf0Nv.png "<cena + Vertical portrait frame>" --fator 1 --largura 720 --altura 1280`.
+O motor gera vídeo na proporção da imagem de entrada; monte com `montar.py --vertical` (vai para
+`frames-v/`) e a página escolhe `frames-v/` no celular em pé.
+
+Detalhes, sufixo de estilo e
 filtro de segurança: `referencias/2-motores.md`.
 
 ---
@@ -280,6 +291,9 @@ a alternativa, não o visual completo. Vocabulário: `referencias/3-pagina.md`, 
 - **CLIs de geração comem a entrada padrão** dentro de `while read`: termine o comando com `< /dev/null`.
 - **Dois escritores no mesmo arquivo, nunca.** Pare um agente antes de outro editar a mesma página.
 - **Depois de compactar, arrume a lista de tarefas**, não só o chat.
+- **Chave de API nunca em argumento de comando** (aparece no `ps` de qualquer usuário): passe pelo ambiente.
+- **Filme preto enquanto baixa:** o motor de rolagem baixa 1 quadro a cada 8 primeiro e o canvas só
+  aparece depois do 1º desenho; ponha o 1º quadro como pôster no fundo do palco (`background`).
 
 ## Arquivos
 - `referencias/1-referencias.md` (passo 1), `2-motores.md` (3 e 4), `3-pagina.md` (5),

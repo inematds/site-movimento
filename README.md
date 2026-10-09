@@ -43,15 +43,16 @@ Depois, no Claude Code: `/site-movimento` com as suas referências anexadas.
 | Motor | Autenticação | Fixa início e fim | Medido |
 |---|---|---|---|
 | `kling` | CLI `kling` pela assinatura | sim | 30 créditos por clipe de 5 s em 720p |
-| `agnes` | `AGNES_API_KEY` | sim | construído e testado no contrato |
+| `agnes` | `AGNES_API_KEY` | sim | 1 clipe: pontas 0,91, 80 s; o meio vira metamorfose |
 | `kie` | `KIE_API_KEY` | depende do modelo | construído e testado no contrato |
 | `custom` | `MOTOR_CMD` (qualquer IA) | depende | — |
 | código | nenhum | — | zero custo |
 
 ## Números do piloto
 
-- 3 clipes + 1 loop no Kling 720p: 150 créditos (um loop refeito por estar parado demais).
-- Fixação dos quadros entre 0,91 e 0,997; zero cortes escondidos; 361 quadros; continuidade PASSA.
+- Kling 720p: 300 créditos no total. 150 na 1ª versão (3 clipes + loop, um refeito), 60 para tirar as letras do painel (30 perdidos) e 90 no filme vertical do celular (3 clipes 9:16).
+- Filme horizontal com 285 quadros; vertical (celular em pé) com 361, em `frames-v/`.
+- Fixação dos quadros entre 0,91 e 0,997; zero cortes escondidos; continuidade PASSA nos dois filmes.
 - Travada máxima de 33 a 36 ms na rolagem (era 150 a 315 ms antes de corrigir a janela de bitmaps).
 
 ## Delegação medida

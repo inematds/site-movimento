@@ -31,9 +31,11 @@ mkdir -p "$(dirname "$OUT")"
 
 subir() {
   if [ -n "${KIE_SUBIR:-}" ]; then $KIE_SUBIR "$1"; return; fi
-  python3 - "$UPLOAD" "$KEY" "$1" <<'PY'
+  MOTOR_CHAVE="$KEY" python3 - "$UPLOAD" "$1" <<'PY'
 import base64, json, os, sys, urllib.request
-up, key, p = sys.argv[1:]
+import os
+key = os.environ['MOTOR_CHAVE']  # pelo ambiente: em argv a chave aparece no ps
+up, p = sys.argv[1:]
 corpo = {'base64Data': 'data:image/png;base64,' + base64.b64encode(open(p, 'rb').read()).decode(),
          'uploadPath': 'site-movimento', 'fileName': os.path.basename(p)}
 r = json.load(urllib.request.urlopen(urllib.request.Request(up, json.dumps(corpo).encode(),
@@ -45,9 +47,11 @@ PY
 U_INI=$(subir "$INI"); [ -n "$U_INI" ] || { echo "kie: não consegui URL pública do início" >&2; exit 1; }
 U_FIM=""; [ "$FIM" = "-" ] || U_FIM=$(subir "$FIM")
 
-python3 - "$API" "$KEY" "$MODELO" "$CAMPOS" "$PROMPT" "$SEG" "$U_INI" "$U_FIM" "$OUT" <<'PY'
+MOTOR_CHAVE="$KEY" python3 - "$API" "$MODELO" "$CAMPOS" "$PROMPT" "$SEG" "$U_INI" "$U_FIM" "$OUT" <<'PY'
 import json, sys, time, urllib.request
-api, key, modelo, campos, prompt, seg, ui, uf, out = sys.argv[1:]
+import os
+key = os.environ['MOTOR_CHAVE']  # pelo ambiente: em argv a chave aparece no ps
+api, modelo, campos, prompt, seg, ui, uf, out = sys.argv[1:]
 c = json.loads(campos)
 H = {'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json'}
 entrada = {c['prompt']: prompt, c['inicio']: ui, c['duracao']: str(round(float(seg)))}

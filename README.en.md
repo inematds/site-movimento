@@ -43,15 +43,16 @@ Then, in Claude Code: `/site-movimento` with your references attached.
 | Engine | Authentication | Pins start and end | Measured |
 |---|---|---|---|
 | `kling` | `kling` CLI through the subscription | yes | 30 credits per 5 s clip at 720p |
-| `agnes` | `AGNES_API_KEY` | yes | built and tested against the contract |
+| `agnes` | `AGNES_API_KEY` | yes | 1 clip: ends 0.91, 80 s; the middle turns into a morph |
 | `kie` | `KIE_API_KEY` | depends on the model | built and tested against the contract |
 | `custom` | `MOTOR_CMD` (any AI) | depends | n/a |
 | code | none | n/a | zero cost |
 
 ## Pilot numbers
 
-- 3 clips + 1 loop on Kling 720p: 150 credits (one loop redone for being too still).
-- Frame pinning between 0.91 and 0.997; zero hidden cuts; 361 frames; continuity PASS.
+- Kling 720p: 300 credits in total. 150 for the 1st version (3 clips + loop, one redone), 60 to remove the letters from the board (30 wasted) and 90 for the vertical phone film (3 clips at 9:16).
+- Horizontal film with 285 frames; vertical (phone held upright) with 361, in `frames-v/`.
+- Frame pinning between 0.91 and 0.997; zero hidden cuts; continuity PASS on both films.
 - Maximum stutter of 33 to 36 ms on scroll (it was 150 to 315 ms before fixing the bitmap window).
 
 ## Measured delegation

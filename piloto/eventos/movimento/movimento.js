@@ -45,12 +45,16 @@
     if (fim) fim.style.opacity = (0.5 * lim((p - 0.8) / 0.2)).toFixed(3);  // escurece o painel filmado enquanto o real sobe
   }
   var filme = null;
-  fetch('frames/manifest.json').then(function (r) { return r.json(); }).then(function (m) {
+  // celular em pé: filme vertical (frames-v/, clipes 9:16); se não existir, o horizontal cobrindo a tela
+  var VERT = matchMedia('(max-width: 719px) and (orientation: portrait)').matches;
+  function manifesto(dir) { return fetch(dir + '/manifest.json').then(function (r) { if (!r.ok) throw r.status; return r.json(); }).then(function (m) { m.dir = dir; return m; }); }
+  (VERT ? manifesto('frames-v').catch(function () { VERT = false; return manifesto('frames'); }) : manifesto('frames')).then(function (m) {
+    document.documentElement.classList.toggle('filme-vertical', VERT);
     filme = MotionEngine.Scrub({
       canvas: document.getElementById('tela'), driver: secFilme, count: m.count, fps: 24, dpr: 1,
       // composição centrada (perspectiva de um ponto): aguenta cobrir a tela do celular sem perder o assunto
       maxCrop: innerWidth < 720 ? 0.8 : 0.22,
-      src: function (i) { return 'frames/f_' + String(i + 1).padStart(4, '0') + '.jpg'; },
+      src: function (i) { return m.dir + '/f_' + String(i + 1).padStart(4, '0') + '.jpg'; },
       onProgress: function (p) { batidasEm(p); },
       onLoad: function (f) { if (carregando) carregando.textContent = f < 1 ? Math.round(f * 100) + '%' : ''; }
     });

@@ -261,9 +261,9 @@ Read the references, interview me and use the kling engine.</span></pre>
     <figure><img src="../assets/ex-keyframes.jpg" alt="Sheet with the pilot's four keyframes, from the runway to the board" loading="lazy"><figcaption>The 4 keyframes, made by approximation.</figcaption></figure>
   </div>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><h3>Pilot numbers</h3><p>3 clips of 5 s + 1 loop on Kling 720p: <strong>150 credits</strong> (one loop redone). Frame pinning between 0.91 and 0.997. Zero cuts. 361 frames. Maximum stutter of 33 to 36 ms.</p></div>
+    <div class="card"><h3>Pilot numbers</h3><p>Kling 720p, 5 s clips: <strong>300 credits</strong> in total. 150 for the 1st version (3 clips + loop, one loop redone), 60 to remove the letters from the board (30 wasted: the letters were born in the keyframe, and the 1st redo started from a frame that already had letters) and 90 for the vertical phone film (3 clips at 9:16). Pinning between 0.91 and 0.997, zero cuts, 285 frames on desktop and 361 on mobile.</p></div>
     <div class="card"><h3>Six graphics in code</h3><p>A frame that slides across the areas, a route with a plane in the schedule, a recording bar, a line that connects the four doors, files entering the folder and a plane that takes off in the footer.</p></div>
-    <div class="card"><h3>What the critics caught</h3><p>An empty news list, a faded final sentence, the switch covering content and the film not "landing" on the real board. Those four were fixed. In the 2nd round the critics still fail it: the AI-generated board has garbled letters and the captures show black bands while frames load.</p></div>
+    <div class="card"><h3>What the critics caught</h3><p>1st round: an empty news list, a faded final sentence, the switch covering content and the film not "landing" on the real board (fixed). 2nd round: garbled letters on the board and black bands while frames load. Both were fixed afterwards (board without letters, sparse frames loaded first and a poster instead of black), but they have not gone through a 3rd round yet. Still open: the colors inherited from eventos (yellow PRO block, salmon buttons).</p></div>
   </div>
 </div></section>
 
@@ -291,8 +291,9 @@ Read the references, interview me and use the kling engine.</span></pre>
   <p class="sub">Only what was done is marked as done.</p>
   <div class="phase"><div class="tag">Done</div><div class="d"><strong>Skill 1.0 + engines + pilot</strong><span>Seven steps, four engines with the same contract, Kling engine measured, public pilot on the events home.</span></div></div>
   <div class="phase"><div class="tag">Done</div><div class="d"><strong>Delegation measurement</strong><span>Building and critics compared between the smaller model and the top model.</span></div></div>
-  <div class="phase"><div class="tag">Next</div><div class="d"><strong>Agnes and Kie measured</strong><span>Run a test clip on each and record pinning, cost and time (they are built and tested against the contract, with no real clip yet).</span></div></div>
-  <div class="phase"><div class="tag">Next</div><div class="d"><strong>9:16 film on mobile</strong><span>A second vertical pass with the same journey, so the phone gets the whole film.</span></div></div>
+  <div class="phase"><div class="tag">Done</div><div class="d"><strong>9:16 film on mobile</strong><span>Vertical keyframes taken from the horizontal ones (same axis), 3 Kling clips at 9:16 and <code>montar.py --vertical</code>. On a phone held upright the page uses <code>frames-v/</code>.</span></div></div>
+  <div class="phase"><div class="tag">Done</div><div class="d"><strong>Agnes measured</strong><span>1 clip with the same endpoints and prompt as Kling: it pins the ends (0.91), no cut, 80 s to render. But in the middle the place transforms (another hall, the board turns into a wall), while Kling kept the geometry. Good for short transitions, not for the continuous top shot.</span></div></div>
+  <div class="phase"><div class="tag">Next</div><div class="d"><strong>Kie measured</strong><span>Built and tested against the contract, with no real clip yet.</span></div></div>
 </div></section>
 
 <footer>

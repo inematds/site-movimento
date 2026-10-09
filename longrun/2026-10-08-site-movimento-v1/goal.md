@@ -16,7 +16,7 @@ análise de delegação Haiku × topo, guia PT/EN/ES e card no portal.
 - [ ] `ls motores/{kling,agnes,kie,custom}.sh` → 4 arquivos; `bash tests/motores-contrato.sh` → 4/4 OK (dry-run: valida args, monta comando, não chama)
 - [ ] `python3 scripts/cutscan.py piloto/eventos/assets/*.mp4` → exit 0
 - [ ] `bash scripts/continuity-gate.sh piloto/eventos/frames 4` → PASS
-- [ ] `node tests/piloto.cjs` → 0 erros de console, jank máx < 50 ms, Off/On/X-ray funcionam, sem rolagem horizontal em 390 px
+- [x] `node tests/piloto-secoes.cjs` + `scripts/verificar.js jank` → 0 erros de console, jank máx < 50 ms, Off/On/X-ray funcionam, sem rolagem horizontal em 390 px
 - [ ] `cd ~/projetos/inema-motion-lab && node tools/testar-pecas.cjs` → `20/20 peças OK`
 - [ ] `python3 ~/.claude/skills/skill-creator-plus/scripts/validate_skill.py ~/.claude/skills/site-movimento` (ou validador equivalente) → OK
 - [ ] `docs/DELEGACAO-MODELOS.md` com tabela medida (peças Haiku × topo: 1ª passada no teste, nº de correções; críticos Haiku × topo no piloto)

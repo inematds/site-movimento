@@ -2,6 +2,8 @@
 
 | data | o que quebrou | menor correção | prompt \| infra |
 |---|---|---|---|
+| 2026-10-08 | `capturar.js` devolvia o filme preto no pacote dos críticos | tirar `--enable-gpu --ignore-gpu-blocklist` dos argumentos do Chromium | infra |
+| 2026-10-08 | `copiar-base.py` esvaziou o `landing.js` (abrir com 'w' antes de ler) e o News do piloto ficou vazio | ler numa variável antes de abrir para escrita | prompt |
 | 2026-10-08 | motor de rolagem travava 150–315 ms na 1ª rolagem (quadros baixados depois da 1ª chamada ficavam sem bitmap) | `ensure()` recalcula a janela também quando `nLoaded` muda | infra |
 | 2026-10-08 | loop do painel quase parado (1,5/255) com prompt "flicker softly" | `loop.sh` mede o movimento e avisa < 4/255; prompt pede movimento visível | prompt |
 | 2026-10-08 | resumo do Raio-X contava 1 elemento em código (defer roda com readyState interactive, a chave montava antes dos gráficos) | `desenhar()` recalcula o resumo | infra |

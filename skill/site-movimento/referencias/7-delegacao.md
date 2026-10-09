@@ -36,6 +36,8 @@ Os três papéis rodados nos dois modelos sobre o mesmo pacote de imagens do pil
 Os dois também acharam os defeitos reais que eu não tinha visto: a lista do News vazia (um script
 tinha sido truncado na cópia) e um vazio preto no pacote de capturas (flag de GPU no capturador).
 
+**2ª rodada (depois das correções, só modelo menor):** briefing e sistema ainda REPROVAM (letras deformadas no painel gerado pela IA; bloco amarelo e botões salmão herdados do site original); ofício ainda prefere o original porque o pacote de capturas mostra faixas pretas enquanto os quadros do filme carregam pela rede.
+
 **Leitura:** julgar imagens contra um briefing ou um sistema escrito é tarefa fechada; o modelo
 menor faz igual, em menos de um minuto, por menos custo por token. O topo achou um detalhe a mais
 no crítico de sistema.

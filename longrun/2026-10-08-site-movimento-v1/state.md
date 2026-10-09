@@ -20,3 +20,11 @@ Em aberto (decisão do Nei):
 - ofício: prefere o original, porque o pacote mostra faixas pretas enquanto os quadros carregam do Pages.
 Próximo: refazer kf04 + clipe 3 pedindo painel SEM letras (~30 cr); pré-carregar o 1º trecho de quadros / pôster no canvas; decidir se o piloto herda as cores do eventos.
 Teste reproduzível: tests/piloto-secoes.cjs (deu 1 erro 503 transitório do Pages na última rodada).
+
+## 3ª etapa (08/10 ~23h, pedido do Nei: refazer painel, 1 clipe Agnes, filme do celular) — commit 54c1012
+- Painel sem letras: as letras nasciam no kf03 (flux), não no clipe. Filme = c1 + c2[1..44] + c3c (c2.q44 → kf04). 285 quadros, continuidade PASSA. c3b (30 cr) perdido: partiu de quadro com letras.
+- Filme vertical: kf-v/ (fatia 9:16 de cada kf, kf01v remendado à mão), clipes-v v1–v3 (90 cr), frames-v/ 361 quadros, continuidade PASSA; movimento.js escolhe frames-v no celular em pé.
+- Agnes: 1 clipe (mesmas pontas/prompt do c3b): pontas 0,915/0,908, sem corte, 80 s, 1280x704; meio vira metamorfose. Motor corrigido (consulta /agnesapi, JPEG, retry) e chave fora do argv (agnes e kie).
+- Faixas pretas: motor baixa 1 a cada 8 primeiro + pôster; publicado sem preto mesmo com 4–11% carregado.
+- Kling total 300 (5255,8 → 4955,8 = ledger). Jank publicado máx 29,7 ms (desktop). Guia/README PT/EN/ES atualizados.
+- Não rodado: 3ª rodada de críticos; jank no celular. Aberto: cores herdadas do eventos; Kie sem clipe (não autorizado).

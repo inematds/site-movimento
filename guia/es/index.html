@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sitio en Movimiento: la cabecera se vuelve una película al hacer scroll</title>
+<meta name="description" content="Skill para Claude Code y Codex: la cabecera del sitio se vuelve un video de IA encadenado que avanza con el scroll, con gráficos animados en código y el interruptor Detenido, Activo y Rayos X. Kling, Agnes, Kie o cualquier generador.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/site-movimento/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/site-movimento/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/site-movimento/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#E2A23B; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#b9791d; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:20px;font-size:.92rem}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(226,162,59,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:760px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(226,162,59,.22),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:74px 22px}
+  .hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.18rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:34ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:48px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:62ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.92rem;margin:0}
+  .num{display:inline-flex;width:30px;height:30px;align-items:center;justify-content:center;border-radius:8px;background:rgba(226,162,59,.14);color:var(--amb);font-family:Sora;font-weight:800;font-size:.9rem;margin-bottom:.7em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.85rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.86rem;line-height:1.6;color:#d6d6e0}
+  pre .c{color:#6f6f7c} pre .k{color:var(--amb2)} pre .s{color:#9ece6a}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:26px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere}
+  .step .b{width:46px;height:46px;border-radius:12px;background:var(--amb);color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🎬</span> Sitio en Movimiento</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#oque">Qué es</a>
+    <a class="sec" href="#fluxo">Cómo funciona</a>
+    <a class="sec" href="#guia">Guía de uso</a>
+    <a class="sec" href="#exemplos">Piloto</a>
+    <a class="sec" href="#roadmap">Roadmap</a>
+    <span class="lang"><a href="../">PT</a><a href="../en/">EN</a><a class="on" href="./">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Cambiar tema" title="Cambiar tema">🌙</button>
+    <a class="btn" href="https://github.com/inematds/site-movimento" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Skill para Claude Code y Codex</span>
+      <h1>La cabecera del sitio se vuelve una <span class="amb">película</span> que avanza con el scroll.</h1>
+      <p class="lead">Video de IA encadenado cuadro a cuadro, sin saltos, y un gráfico animado en código en cada sección. Con el interruptor Detenido, Activo y Rayos X, que muestra qué es video y qué es código.</p>
+      <div class="cta">
+        <a class="btn" href="#guia">Empezar la guía</a>
+        <a class="btn ghost" href="../../piloto/eventos/" target="_blank" rel="noopener">Ver el piloto</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-es.jpg" alt="Sitio en Movimiento: la cabecera se vuelve una película que avanza con el scroll"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">En resumen</span>
+  <p>Sitio en Movimiento es una skill para Claude Code (y Codex) que arma un sitio cuya cabecera es un video continuo: la cámara avanza a medida que la persona desplaza la página. El video lo genera la IA en clips cortos encadenados, y los scripts comprueban que no haya saltos entre ellos. Debajo de la película, cada sección recibe una animación hecha en código que explica lo que dice. Sirve para quien quiere una página de apertura con aspecto de película. Necesitas Claude Code y, si quieres video de verdad, un generador de video (Kling, Agnes, Kie u otro); sin generador, arma todo en código.</p>
+</div></section>
+
+<section id="oque"><div class="wrap">
+  <span class="chip">Qué es</span>
+  <h2>Un proceso, no un molde</h2>
+  <p class="sub">Cada sitio se diseña desde cero. Lo que se repite es el método, los scripts que revisan el trabajo y el motor de la página.</p>
+  <figure style="margin:0 0 26px;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000"><img src="../assets/banner-grade-es.jpg" alt="Los pasos de Sitio en Movimiento: referencias, keyframes, película encadenada, capa de movimiento, críticos y Rayos X" loading="lazy" style="width:100%;display:block"></figure>
+  <div class="grid g3">
+    <div class="card"><h3>🎞️ Película sin saltos</h3><p>Cada clip empieza en el último cuadro real del anterior. Los scripts miden si el generador respetó el cuadro inicial y final y si hay un corte escondido en el medio.</p></div>
+    <div class="card"><h3>🔌 Cualquier generador</h3><p>Kling por suscripción, Agnes, Kie o el tuyo (un comando con inicio, fin, prompt y salida). Sin generador, la película se vuelve escenas en código.</p></div>
+    <div class="card"><h3>🩻 Rayos X</h3><p>Un interruptor en la esquina alterna entre Detenido, Activo y Rayos X. En Rayos X, cada cosa que se mueve recibe una etiqueta: video de IA (con su costo) o código.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">Cómo funciona</span>
+  <h2>Siete pasos, cada uno con una compuerta</h2>
+  <p class="sub">Ningún paso avanza sin pasar su compuerta. Las compuertas son scripts sin IA, de costo cero.</p>
+  <div class="flow">
+    <span>1 · Referencias → listón</span><span class="arr">→</span>
+    <span>2 · Entrevista + presupuesto</span><span class="arr">→</span>
+    <span>3 · Keyframes</span><span class="arr">→</span>
+    <span>4 · Película encadenada</span><span class="arr">→</span>
+    <span>5 · Página + movimiento</span><span class="arr">→</span>
+    <span>6 · Tres críticos</span><span class="arr">→</span>
+    <span>7 · Texto + verificación</span>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>Keyframes por aproximación</h3><p>Pedirle a un modelo de imagen que "la cámara avance" suele devolver la misma foto. La skill recorta el centro del cuadro anterior, lo amplía y solo redibuja el detalle: el eje de la cámara queda garantizado.</p></div>
+    <div class="card"><h3>Compuertas medidas</h3><p><code>vetor.py</code> comprueba el sentido de la película antes de gastar; <code>fixacao.py</code> mide si el generador respetó los cuadros; <code>cortes.py</code> y <code>continuidade.py</code> encuentran cortes y congelamientos.</p></div>
+    <div class="card"><h3>Críticos que ven píxeles</h3><p>Tres críticos con contexto limpio juzgan las capturas, nunca el código: briefing, sistema visual y oficio (contra la referencia, a ciegas). El veredicto es solo PASSA o REPROVA.</p></div>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requisitos previos</span>
+  <h2>Lo que debe estar en la máquina</h2>
+  <p class="sub">El generador de video es opcional: sin él, el sitio sale en código puro.</p>
+  <div class="grid g3">
+    <div class="card"><h3>Herramientas</h3><p>Claude Code (o Codex), ffmpeg, Python 3 con numpy y Pillow, Node 18+ con Playwright.</p><pre><span class="k">pip install</span> numpy pillow
+<span class="k">npx playwright install</span> chromium</pre></div>
+    <div class="card"><h3>Generador de video</h3><p>Uno de los motores: <code>kling</code> (CLI por suscripción), <code>agnes</code> o <code>kie</code> (clave tuya) o <code>custom</code> (cualquier comando).</p><pre><span class="k">kling login</span>        <span class="c"># una vez</span>
+<span class="k">kling account -q</span>   <span class="c"># saldo</span></pre></div>
+    <div class="card"><h3>Generador de imagen</h3><p>Para los keyframes: un servidor local (flux2-klein) sin costo, o el generador que prefieras.</p><pre><span class="k">curl</span> <span class="s">localhost:8000/health</span></pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">Guía de uso · paso a paso</span>
+  <h2>Del repositorio al primer sitio</h2>
+  <p class="sub">Comandos reales. La skill conduce todo a partir del paso 3; los comandos de abajo muestran lo que ocurre por debajo.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Instala la skill</h3>
+    <p>Clona el repositorio y enlaza la carpeta de la skill en Claude Code (y en Codex, si lo usas).</p>
+<pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/site-movimento</span> ~/projetos/site-movimento
+<span class="k">ln -s</span> ~/projetos/site-movimento/skill/site-movimento ~/.claude/skills/site-movimento
+<span class="k">bash</span> ~/.claude/skills/site-movimento/tests/motores-contrato.sh   <span class="c"># 4/4 motores OK</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Llámala con tus referencias</h3>
+    <p>Reúne de 3 a 10 imágenes o enlaces de sitios que admires, cada uno elegido por una razón.</p>
+<pre><span class="k">/site-movimento</span>
+<span class="s">Quiero un sitio en movimiento para &lt;tema&gt;. Las referencias están adjuntas.
+Lee las referencias, entrévistame y usa el motor kling.</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Responde la entrevista y aprueba el presupuesto</h3>
+    <p>Un solo lote de preguntas cortas (tema, clima, el viaje de la cámara, secciones, acción, motor). No se gasta nada antes de tu sí.</p>
+<pre><span class="c"># plan Prueba en Kling 720p: 3 clips + 1 loop = 120 créditos (medido)</span>
+<span class="c"># plan Estándar: 5 clips + 2 loops = 210 · Completo: 7 + 4 = 330</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Keyframes encadenados</h3>
+    <p>El primer keyframe sale del prompt; los siguientes, por aproximación. La hoja muestra si algún paso giró la cámara o quedó detenido.</p>
+<pre><span class="k">python3</span> $S/motores/imagem_local.py kf/kf01.png <span class="s">"&lt;escena de apertura&gt;"</span>
+<span class="k">python3</span> $S/scripts/kf_aproxima.py kf/kf01.png kf/kf02.png <span class="s">"&lt;la escena más cerca&gt;"</span> --fator 1.8
+<span class="k">python3</span> $S/scripts/folha_kf.py kf/   <span class="c"># ok / OLHE / QUEBRA? / PARADO</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>La película, un clip a la vez</h3>
+    <p>Comprueba el sentido gratis; después la película sale en orden, cada clip empezando en el último cuadro del anterior.</p>
+<pre><span class="k">python3</span> $S/scripts/vetor.py filme/roteiro.json          <span class="c"># PASSA antes de gastar</span>
+<span class="k">MOTOR=kling bash</span> $S/scripts/filme.sh filme/                <span class="c"># fixacao + cortes en cada clip</span>
+<span class="k">python3</span> $S/scripts/montar.py site filme/clipes/c1.mp4:0:-1 filme/clipes/c2.mp4:1:-1
+<span class="k">python3</span> $S/scripts/continuidade.py site/frames 4      <span class="c"># PASSA: un solo movimiento</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Página, críticos y verificación</h3>
+    <p>La página usa el motor de scroll y el interruptor de movimiento. Los críticos juzgan capturas; el texto y los tirones pasan por compuertas.</p>
+<pre><span class="k">bash</span> $S/scripts/pacote-criticos.sh topo <span class="s">"http://127.0.0.1:8871/site/"</span>
+<span class="k">node</span> $S/scripts/portao-texto.js site/index.html          <span class="c"># texto limpio</span>
+<span class="k">node</span> $S/scripts/verificar.js jank <span class="s">"http://127.0.0.1:8871/site/"</span>   <span class="c"># máx &lt; 50 ms</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">7</div><div>
+    <h3>Usa otro generador de video</h3>
+    <p>Cualquier IA entra por el motor <code>custom</code>. Prueba la fijación en el primer clip antes de encadenar la película.</p>
+<pre><span class="k">export MOTOR=custom</span>
+<span class="k">export MOTOR_CMD=</span><span class="s">'meu-cli --start {inicio} --end {fim} -p {prompt} --sec {segundos} -o {saida}'</span>
+<span class="k">bash</span> $S/scripts/filme.sh filme/</pre>
+  </div></div>
+</div></section>
+
+<section id="exemplos"><div class="wrap">
+  <span class="chip">Piloto</span>
+  <h2>La home de INEMA eventos con película en la apertura</h2>
+  <p class="sub">Una copia de prueba de la home de eventos.inema.pro. La cámara sale de la pista al anochecer, entra en la terminal y se detiene en el panel de partidas, y el panel real de la página sube por encima de lo filmado. <a href="../../piloto/eventos/" target="_blank" rel="noopener">Abrir el piloto</a>.</p>
+  <div class="ex">
+    <figure><img src="../assets/ex-topo.jpg" alt="Apertura del piloto: la terminal al anochecer con la frase Toda turma começa com uma partida" loading="lazy"><figcaption>Apertura: la película empieza en la pista.</figcaption></figure>
+    <figure><img src="../assets/ex-passagem.jpg" alt="El panel real de la página subiendo por encima del panel filmado" loading="lazy"><figcaption>Pasaje: el panel real sube sobre el filmado.</figcaption></figure>
+    <figure><img src="../assets/ex-raiox.jpg" alt="Modo Rayos X con etiquetas sobre la película y el resumen de videos y código" loading="lazy"><figcaption>Rayos X: qué es video de IA y qué es código, con su costo.</figcaption></figure>
+    <figure><img src="../assets/ex-keyframes.jpg" alt="Hoja con los cuatro keyframes del piloto, de la pista al panel" loading="lazy"><figcaption>Los 4 keyframes, hechos por aproximación.</figcaption></figure>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>Números del piloto</h3><p>3 clips de 5 s + 1 loop en Kling 720p: <strong>150 créditos</strong> (un loop rehecho). Fijación de los cuadros entre 0,91 y 0,997. Cero cortes. 361 cuadros. Tirón máximo de 33 a 36 ms.</p></div>
+    <div class="card"><h3>Seis gráficos en código</h3><p>Marco que se desliza por las áreas, ruta con avión en la agenda, barra de grabación, línea que une las cuatro puertas, archivos entrando en la carpeta y un avión que despega en el pie de página.</p></div>
+    <div class="card"><h3>Lo que detectaron los críticos</h3><p>Lista de noticias vacía, frase final borrada, interruptor tapando contenido y la película sin "aterrizar" en el panel real. Todo corregido antes de publicar.</p></div>
+  </div>
+</div></section>
+
+<section id="delegacao"><div class="wrap">
+  <span class="chip">Quién hace qué</span>
+  <h2>Lo que se puede pasar a un modelo menor (medido)</h2>
+  <p class="sub">Mismo briefing para un modelo rápido y barato y para el modelo más fuerte. Detalles en <a href="https://github.com/inematds/site-movimento/blob/main/skill/site-movimento/referencias/7-delegacao.md" target="_blank" rel="noopener">7-delegacao.md</a> (en portugués).</p>
+  <div class="grid g3">
+    <div class="card"><h3>Construir con gusto: el tope</h3><p>15 piezas de interfaz juzgadas a ciegas: el modelo menor tuvo <strong>2 de 5</strong> aprobadas, el tope <strong>8 de 10</strong>. El menor pasó todas las pruebas automáticas y falló en la identidad visual.</p></div>
+    <div class="card"><h3>Juzgar: modelo menor</h3><p>Los tres críticos ejecutados en los dos modelos dieron los <strong>mismos veredictos y la misma mayor diferencia</strong>, en menos de un minuto cada uno.</p></div>
+    <div class="card"><h3>Regla práctica</h3><p>El modelo menor juzga y arregla; el tope crea. Ffmpeg, SSIM, cortes, montaje y capturas quedan con scripts, sin modelo.</p></div>
+  </div>
+</div></section>
+
+<section id="pecas"><div class="wrap">
+  <span class="chip">Capa de movimiento</span>
+  <h2>20 piezas listas en INEMA Motion Lab</h2>
+  <p class="sub">Antes de inventar una animación, la skill busca en el catálogo: búsqueda ⌘K, grilla bento, 404 jugable, día y noche, pies de página con física, cortina, flor, mapa y rompe-bloques, menú que se transforma, menú a pantalla completa, navegación que salta, calcomanía holográfica, mascota que sigue el cursor, dock líquido, botones de gelatina, letrero de placas, rastro de imágenes, galería giratoria y carga que revela la página. Todas con Rayos X.</p>
+  <div class="cta"><a class="btn ghost" href="https://inematds.github.io/inema-motion-lab/guia/" target="_blank" rel="noopener">Abrir INEMA Motion Lab</a></div>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Roadmap</span>
+  <h2>Dónde está y qué viene</h2>
+  <p class="sub">Solo lo que se hizo está marcado como hecho.</p>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Skill 1.0 + motores + piloto</strong><span>Siete pasos, cuatro motores con el mismo contrato, motor Kling medido, piloto público en la home de eventos.</span></div></div>
+  <div class="phase"><div class="tag">Hecho</div><div class="d"><strong>Medición de delegación</strong><span>Construcción y críticos comparados entre modelo menor y tope.</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Agnes y Kie medidos</strong><span>Ejecutar un clip de prueba en cada uno y registrar fijación, costo y tiempo (están construidos y probados en el contrato, aún sin clip real).</span></div></div>
+  <div class="phase"><div class="tag">Próximo</div><div class="d"><strong>Película 9:16 en el celular</strong><span>Segunda pasada vertical con el mismo recorrido, para que el celular tenga la película completa.</span></div></div>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Claude Code</div><div class="pill">Kling · Agnes · Kie · custom</div><div class="pill">ffmpeg · Playwright</div>
+    <p style="margin-top:18px">Sitio en Movimiento · abierto y gratuito ·
+      <a href="https://github.com/inematds/site-movimento">inematds/site-movimento</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='site-movimento-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      localStorage.setItem(KEY, light?'light':'dark');
+    });
+  })();
+</script>
+</body>
+</html>

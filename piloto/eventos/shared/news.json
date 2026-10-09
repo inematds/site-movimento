@@ -1,0 +1,133 @@
+{
+ "source": "https://news.inema.pro/",
+ "items": [
+  {
+   "date": "2026-10-08",
+   "url": "https://www.youtube.com/watch?v=nOYaruP0gDs",
+   "pt": {
+    "titulo": "Um novo formato para criar vídeos",
+    "resumo": "Mostra um gerador de vídeos com Agnes ou outra IA e uma ferramenta para publicá-los no YouTube."
+   },
+   "en": {
+    "titulo": "A new way to create videos",
+    "resumo": "Shows a video generator using Agnes or another AI and a tool for publishing videos on YouTube."
+   },
+   "es": {
+    "titulo": "Un nuevo formato para crear vídeos",
+    "resumo": "Muestra un generador de vídeos con Agnes u otra IA y una herramienta para publicarlos en YouTube."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/yt-pubx/guia/",
+   "pt": {
+    "titulo": "yt-pubx — Publique vídeos no YouTube com um comando",
+    "resumo": "Publica vídeos em vários canais do YouTube, criando título, descrição, tags e miniatura, com opção de agendar."
+   },
+   "en": {
+    "titulo": "yt-pubx — Publish videos on YouTube with one command",
+    "resumo": "Publishes videos across multiple YouTube channels, creating the title, description, tags, and thumbnail, with a scheduling option."
+   },
+   "es": {
+    "titulo": "yt-pubx — Publica vídeos en YouTube con un solo comando",
+    "resumo": "Publica vídeos en varios canales de YouTube y crea el título, la descripción, las etiquetas y la miniatura, con opción de programar."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/yt-pub-livesx/",
+   "pt": {
+    "titulo": "yt-pub-livesx — Crie miniaturas e complete os dados das lives",
+    "resumo": "Gera miniaturas para lives no Codex e completa títulos e descrições com as informações que faltam."
+   },
+   "en": {
+    "titulo": "yt-pub-livesx — Create thumbnails and fill in livestream details",
+    "resumo": "Generates livestream thumbnails in Codex and fills in missing information in titles and descriptions."
+   },
+   "es": {
+    "titulo": "yt-pub-livesx — Crea miniaturas y completa los datos de las transmisiones",
+    "resumo": "Genera miniaturas para transmisiones en Codex y completa los títulos y las descripciones con la información que falta."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/skills-craft-v6/",
+   "pt": {
+    "titulo": "Skills v6 — Ensine uma vez, o Claude repete do seu jeito",
+    "resumo": "Curso de 8 aulas de 15 minutos para criar sua skill no app do Claude, sem programar."
+   },
+   "en": {
+    "titulo": "Skills v6 — Teach it once, and Claude repeats it your way",
+    "resumo": "An 8-lesson course, with 15 minutes per lesson, on creating your skill in the Claude app without programming."
+   },
+   "es": {
+    "titulo": "Skills v6 — Enséñale una vez y Claude lo repetirá a tu manera",
+    "resumo": "Curso de 8 clases de 15 minutos para crear tu skill en la aplicación de Claude, sin programar."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/refazvideo/guia/",
+   "pt": {
+    "titulo": "refazvideo — Crie explicativos com um vídeo de referência e seu avatar",
+    "resumo": "Transforma um tema e um vídeo de referência em um explicativo em português com seu avatar, para entregar no Telegram ou YouTube."
+   },
+   "en": {
+    "titulo": "refazvideo — Make explainers from a reference video with your avatar",
+    "resumo": "Turns a topic and a reference video into an explainer in Portuguese featuring your avatar, ready to deliver on Telegram or YouTube."
+   },
+   "es": {
+    "titulo": "refazvideo — Crea vídeos explicativos con una referencia y tu avatar",
+    "resumo": "Convierte un tema y un vídeo de referencia en un explicativo en portugués con tu avatar, para enviarlo por Telegram o YouTube."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/inema-motion-lab/guia/",
+   "pt": {
+    "titulo": "INEMA Motion Lab — Anime sites com um prompt",
+    "resumo": "Oferece um modelo de prompt, cinco animações prontas para sites e vídeos que mostram cada uma."
+   },
+   "en": {
+    "titulo": "INEMA Motion Lab — Animate websites with a prompt",
+    "resumo": "Offers a prompt template, five ready-made website animations, and videos showing each one."
+   },
+   "es": {
+    "titulo": "INEMA Motion Lab — Anima sitios web con un prompt",
+    "resumo": "Ofrece un modelo de prompt, cinco animaciones listas para sitios web y vídeos que muestran cada una."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/docflow/guia/",
+   "pt": {
+    "titulo": "docflow — Transforme um tema em documentário narrado para o YouTube",
+    "resumo": "Cria e publica documentários narrados no YouTube a partir de um tema, com roteiro, imagens, narração e montagem automáticos."
+   },
+   "en": {
+    "titulo": "docflow — Turn a topic into a narrated documentary for YouTube",
+    "resumo": "Creates and publishes narrated YouTube documentaries from a topic, with automated scripts, images, narration, and editing."
+   },
+   "es": {
+    "titulo": "docflow — Convierte un tema en un documental narrado para YouTube",
+    "resumo": "Crea y publica documentales narrados en YouTube a partir de un tema, con guion, imágenes, narración y montaje automáticos."
+   }
+  },
+  {
+   "date": "2026-10-07",
+   "url": "https://inematds.github.io/decisions-jev/guia/",
+   "pt": {
+    "titulo": "Decisions × Jev — Compare as ferramentas e converta perguntas",
+    "resumo": "Compara a Decisions API com o Jev em imagem, recusa, preço e latência, e converte perguntas entre os formatos com uma ponte em Python."
+   },
+   "en": {
+    "titulo": "Decisions × Jev — Compare the tools and convert questions",
+    "resumo": "Compares the Decisions API with Jev for image, refusal, price, and latency, and converts questions between their formats with a Python bridge."
+   },
+   "es": {
+    "titulo": "Decisions × Jev — Compara las herramientas y convierte preguntas",
+    "resumo": "Compara la Decisions API con Jev en imagen, rechazo, precio y latencia, y convierte preguntas entre ambos formatos con un puente en Python."
+   }
+  }
+ ]
+}

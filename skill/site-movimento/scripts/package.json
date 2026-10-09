@@ -1,0 +1,9 @@
+{
+  "name": "site-movimento-scripts",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Ajudantes de navegador da skill site-movimento (capturar.js, fotos.js, foto.js, verificar.js). Usam o Playwright; rode `npm install && npx playwright install chromium` uma vez se ele ainda não estiver na máquina.",
+  "dependencies": {
+    "playwright": "^1.47.0"
+  }
+}

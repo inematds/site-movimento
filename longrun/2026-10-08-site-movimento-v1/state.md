@@ -13,3 +13,10 @@ Feito e verificado:
 Em aberto (decisão do Nei):
 - Agnes e Kie: só construídos (contrato 4/4; zero chamadas sem autorização de API).
 - Filme 9:16 para celular (hoje cobre a tela com o 16:9 centrado).
+
+## 2ª rodada de críticos (Haiku, piloto publicado) — ainda REPROVA
+- briefing: painel gerado pelo Kling com letras deformadas; topo das capturas sem a pista.
+- sistema: bloco amarelo do PRO e botões salmão (herdados do eventos original); corpo < 18 px.
+- ofício: prefere o original, porque o pacote mostra faixas pretas enquanto os quadros carregam do Pages.
+Próximo: refazer kf04 + clipe 3 pedindo painel SEM letras (~30 cr); pré-carregar o 1º trecho de quadros / pôster no canvas; decidir se o piloto herda as cores do eventos.
+Teste reproduzível: tests/piloto-secoes.cjs (deu 1 erro 503 transitório do Pages na última rodada).

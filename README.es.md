@@ -64,3 +64,7 @@ modelo menor). Los tres críticos dieron los mismos veredictos en los dos modelo
 ---
 
 Abierto y gratuito · [INEMA.CLUB](https://inema.club)
+
+## Ver también
+
+- [Shaders](https://inematds.github.io/shaders/guia/es/) — más de 200 efectos WebGPU gratis (MIT) como componentes para el fondo de las secciones del sitio.

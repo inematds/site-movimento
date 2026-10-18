@@ -64,3 +64,7 @@ smaller model). The three critics gave the same verdicts on both models. Details
 ---
 
 Open and free · [INEMA.CLUB](https://inema.club)
+
+## See also
+
+- [Shaders](https://inematds.github.io/shaders/guia/en/) — 200+ free WebGPU effects (MIT) as components for your site's section backgrounds.

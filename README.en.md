@@ -61,10 +61,10 @@ Building pieces with taste stayed with the stronger model (8 of 10 approved blin
 smaller model). The three critics gave the same verdicts on both models. Details in
 [`skill/site-movimento/referencias/7-delegacao.md`](skill/site-movimento/referencias/7-delegacao.md) (in Portuguese).
 
----
-
-Open and free · [INEMA.CLUB](https://inema.club)
-
 ## See also
 
 - [Shaders](https://inematds.github.io/shaders/guia/en/) — 200+ free WebGPU effects (MIT) as components for your site's section backgrounds.
+
+---
+
+Open and free · [INEMA.CLUB](https://inema.club)

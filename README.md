@@ -61,10 +61,10 @@ Construir peças com gosto ficou com o modelo mais forte (8 de 10 aprovadas às 
 modelo menor). Os três críticos deram os mesmos vereditos nos dois modelos. Detalhes em
 [`skill/site-movimento/referencias/7-delegacao.md`](skill/site-movimento/referencias/7-delegacao.md).
 
----
-
-Aberto e gratuito · [INEMA.CLUB](https://inema.club)
-
 ## Veja também
 
 - [Shaders](https://inematds.github.io/shaders/guia/) — mais de 200 efeitos WebGPU grátis (MIT) como componentes para o fundo das seções do site.
+
+---
+
+Aberto e gratuito · [INEMA.CLUB](https://inema.club)
